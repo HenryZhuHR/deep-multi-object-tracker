@@ -64,20 +64,10 @@ message(STATUS "       include  : ${GFLAGS_INCLUDE_DIR}")
 message(STATUS "       lib      : ${GFLAGS_LIBRARIES}")
 
 # ------------------------------------------
-# [dependencies] onnxruntime
-# ------------------------------------------
-if(BUILD_ONNXRUNTIME)
-    set(ONNXRUNTIME_DIR $ENV{ONNXRUNTIME_HOME}) # 如果环境变量没有设置，需要指定路径或者设置环境变量 ONNXRUNTIME_HOME
-    include_directories(${ONNXRUNTIME_DIR}/include)
-    link_directories(${ONNXRUNTIME_DIR}/lib) # 目录下有 libonnxruntime.a
-    set(ONNXRUNTIME_LIBS onnxruntime) # 在 ${ONNXRUNTIME_DIR}/lib 目录下有 libonnxruntime.a
-endif()
-
-# ------------------------------------------
 # [dependencies] opencv
 # ------------------------------------------
 find_package(OpenCV 4 REQUIRED)
-include_directories(${OpenCV_INCLUDE_DIRS})
+include_directories(${OpenCV_INCLUDE_DIRS}/include)
 link_directories(${OpenCV_LIBS})
 message(STATUS "[INFO] OpenCV status:")
 message(STATUS "       version  : ${OpenCV_VERSION}")
@@ -88,8 +78,22 @@ message(STATUS "       libs     : ${OpenCV_LIBS}")
 # set output path
 # ------------------------------------------
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_INSTALL_PREFIX}/bin)
-add_subdirectory(modules)
-add_subdirectory(app)
+
+
+include_directories(include)
+aux_source_directory(src DIR_SRCS)
+
+set(EXECUTABLE_NAME mot-infer-test)
+add_executable(${EXECUTABLE_NAME} 
+    app/mot-infer-test.cpp
+    ${DIR_SRCS}
+)
+target_link_libraries(${EXECUTABLE_NAME} PRIVATE
+    ${GFLAGS_LIBRARIES}
+    ${OpenCV_LIBS}
+)
+unset(EXECUTABLE_NAME)
+
 
 if(NOT EXISTS ${CMAKE_INSTALL_PREFIX}/resource)
     install(

@@ -5,7 +5,7 @@
 #include <opencv2/imgproc.hpp>
 #include <opencv2/opencv.hpp>
 
-#include "detector/opencv_infer.h"
+#include "detector.h"
 
 DEFINE_string(weight_file, "../resource/yolov5s.onnx", "weight_file");
 DEFINE_string(label_file, "../resource/coco_80_labels_list.txt", "");

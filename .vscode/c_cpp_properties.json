@@ -1,6 +1,24 @@
 {
     "configurations": [
         {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/Users/henryzhu/program/eigen/include",
+                "/Users/henryzhu/program/gflags/include",
+                "/Users/henryzhu/program/opencv-4.5.5/include/opencv4",
+                "include"
+            ],
+            "defines": [],
+            "macFrameworkPath": [
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
+            ],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "macos-clang-arm64"
+        },
+        {
             "name": "Linux",
             "includePath": [
                 "libs/eigen/include",
@@ -17,6 +35,7 @@
             "cppStandard": "gnu++17",
             "intelliSenseMode": "linux-gcc-x64"
         }
+        
     ],
     "version": 4
 }

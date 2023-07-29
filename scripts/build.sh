@@ -22,10 +22,10 @@ install_dir=$proj_home/libs
 
 file_dir=$(cd $(dirname $0); pwd)
 # TODO 修改源码包的版本号
-source $file_dir/compile-eigen.sh "3.4.0" $source_dir $install_dir
-source $file_dir/compile-gflags.sh "2.2.2" $source_dir $install_dir
-export ONNXRUNTIME_HOME=$proj_home/libs/onnxruntime
-source $file_dir/compile-opencv.sh "4.8.0" $source_dir $install_dir
+# source $file_dir/compile-eigen.sh "3.4.0" $source_dir $install_dir
+# source $file_dir/compile-gflags.sh "2.2.2" $source_dir $install_dir
+# export ONNXRUNTIME_HOME=$proj_home/libs/onnxruntime
+# source $file_dir/compile-opencv.sh "4.8.0" $source_dir $install_dir
 
 mkdir $proj_home/build
 cd $proj_home/build
