@@ -1,4 +1,6 @@
 node_modules/
+libs/
+
 
 # Prerequisites
 *.d
@@ -29,6 +31,12 @@ node_modules/
 *.lib
 
 # Executables
+install/
+bin/
+build/
+temp/
+resource/
+resources/
 *.exe
 *.out
 *.app

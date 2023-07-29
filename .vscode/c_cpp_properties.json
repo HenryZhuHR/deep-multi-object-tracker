@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "libs/eigen/include",
+                "libs/gflags/include",
+                "libs/onnxruntime/include",
+                "libs/opencv/include/opencv4",
+                "modules/detector/include"
+            ],
+            "defines": [
+                "DEBUG"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
